@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Rus
+comment0.text=\r\n\ Test\ for\ steps\ project.\r\n\ \r\n\ @author\ Marius\ Boncica\ \r\n\ @version\ (1.01\ 8/12/2022)\r\n
+comment1.params=
+comment1.target=Rus()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ plane\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ rotationrus()
+comment4.params=
+comment4.target=void\ mover()
+comment5.params=
+comment5.target=void\ bomb()
+comment6.params=
+comment6.target=void\ youLoose()
+comment7.params=
+comment7.target=void\ youWin()
+numComments=8
