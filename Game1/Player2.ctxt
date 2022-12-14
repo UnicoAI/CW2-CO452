@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Player2
+comment0.text=\r\n\ Author\ Marius\ Daniel\ Boncica\r\n\ updated\ 14/12/2022\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ control()
+comment2.text=movement******************
+comment3.params=
+comment3.target=void\ earnPoints()
+comment4.params=
+comment4.target=void\ speedBooster()
+numComments=5

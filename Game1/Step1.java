@@ -13,6 +13,7 @@ public class Step1 extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     String image;
+   
     public Step1(String imageName)
     {
         image = imageName;
