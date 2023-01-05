@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Plane
+comment1.params=PlaneImage
+comment1.target=Plane(java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ fireProjectile()
+comment4.params=
+comment4.target=void\ addPoints()
+comment5.params=
+comment5.target=void\ removePoints()
+numComments=6
