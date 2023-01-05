@@ -32,7 +32,6 @@ public class GifImage
      * Set the image of the actor. If the image is a normal picture, it will be displayed as normal.
      * If it's an animated GIF file then it will be displayed as an animated actor.
      */
-  
     public GifImage(String file)
     {
         pause = false;

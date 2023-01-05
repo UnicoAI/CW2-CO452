@@ -25,7 +25,7 @@ public class Obstacle extends Actor
     {
        
        count++;
-       if(count % (Greenfoot.getRandomNumber(30) +1) == 0 && this.obstacleName != "space.jpg")
+       if(count % (Greenfoot.getRandomNumber(30) +1) == 0 && this.obstacleName != "news - Copy.gif")
        {
         setLocation(getX() + 30, getY() );
     if(getX() == getWorld().getWidth()-1)
