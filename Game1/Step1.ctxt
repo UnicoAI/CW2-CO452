@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Step1
 comment0.text=\r\n\ Test\ for\ steps\ project.\r\n\ \r\n\ @author\ Marius\ Boncica\ \r\n\ @version\ (1.01\ 8/12/2022)\r\n
-comment1.params=imageName
+comment1.params=img
 comment1.target=Step1(java.lang.String)
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Step1\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

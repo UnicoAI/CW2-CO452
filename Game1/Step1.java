@@ -8,20 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Step1 extends Actor
 {
+    private String img;
+    private GifImage gif;
+    GifImage myGif = new GifImage("sunearth.gif");
+
     /**
      * Act - do whatever the Step1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    String image;
-   
-    public Step1(String imageName)
+    
+    
+    
+
+   public Step1(String img)
     {
-        image = imageName;
-        setImage(this.image);
-    getImage().scale(50,50);
-    }
+     this.img = img;
+        gif = new GifImage( img );
+      
+  }
+
     public void act()
-    {
-        // Add your action code here.
+    { 
+setImage( myGif.getCurrentImage() );
+        // Add sayour action code here.
     }
 }
