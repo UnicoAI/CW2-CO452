@@ -8,8 +8,8 @@ public class Plane extends ScrollActors
       static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
 
-     // current speed
-     public Plane(String PlaneImage){
+    // current speed
+    public Plane(String PlaneImage){
     this.PlaneImage = PlaneImage;
 
     getImage().scale(200,200);}
@@ -35,7 +35,7 @@ public class Plane extends ScrollActors
         fireProjectile();
         addPoints();
        
-    }
+    } 
      public void fireProjectile(){
         if(Greenfoot.mousePressed(null)){
              Projectile projectile = new Projectile();
