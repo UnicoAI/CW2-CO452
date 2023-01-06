@@ -6,14 +6,35 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Moon extends Actor
+public class Moon extends ScrollActors
 {
-    /**
-     * Act - do whatever the Moon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public String NameImage;
+    public static Actor scoreDisp; // actor displaying number of avoided rocks (unhit)
+    public static int created, unhit; // class counts
+    
+    private int rSpeed = 2*QVAL-Greenfoot.getRandomNumber(4*QVAL+1); // tumble rate
+    private int angle = 175*QVAL+Greenfoot.getRandomNumber(10*QVAL+1); // angular direction
+    private int speed = QVAL/2+Greenfoot.getRandomNumber(2*QVAL)+created; // velocity
+    
+    public Moon()
+    {
+        created++; // bump counter
+        setBoundedAction(REMOVE, 0); // set bounded action to remove when 50 past edge
+    }
+    public Moon(String NameImage){
+         this.NameImage = NameImage;;
+
+    getImage().scale(30,30);
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        // turning
+        turn(rSpeed);
+        // moving
+        move(speed, angle);
+        // removed
+        
+      
     }
 }

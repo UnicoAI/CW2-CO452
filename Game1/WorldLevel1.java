@@ -30,6 +30,11 @@ public class WorldLevel1 extends Scroll
         addObject(Sun.scoreDisp = new Actor(){}, 40, 40);
         Earth.created = 0;
     Earth.unhit = 0;
+    
+          // the actor to display the score (number of avoided rocks)
+        addObject(Earth.scoreDisp = new Actor(){}, 10, 10);
+        Moon.created = 0;
+    Moon.unhit = 0;
         
        // the actor to display the score (number of avoided rocks)
         addObject(Earth.scoreDisp = new Actor(){}, 30, 60);

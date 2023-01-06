@@ -62,7 +62,7 @@ addObject(new Obstacle("beeper.png"),j*50,i*50);
 else if (map[i][j] == 4)
 addObject(new Step1("sunearth.gif"),j*50,i*50);
 else if (map[i][j] == 5)
-addObject(new Moon(),j*100,i*100);
+addObject(new Moon("moon.png"),j*100,i*100);
 else if (map[i][j] == 6){
 
 addObject(new Obstacle("blackhole.png"),j*50,i*50);}

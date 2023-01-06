@@ -12,7 +12,7 @@ public class Plane extends ScrollActors
     public Plane(String PlaneImage){
     this.PlaneImage = PlaneImage;
 
-    getImage().scale(200,200);}
+    getImage().scale(80,80);}
     public void act()
     {
         // adjusting the rotation

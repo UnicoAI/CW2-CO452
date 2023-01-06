@@ -20,7 +20,7 @@ public class Obstacle extends Actor
     {
     this.obstacleName = obstacleName;
     setImage(this.obstacleName);
-    getImage().scale(50,50);    }
+    getImage().scale(30,30);    }
     public void act()
     {
        
