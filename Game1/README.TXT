@@ -10,7 +10,8 @@ VERSION or DATE: VERSION 3.1 19/01/2023
 HOW TO START THIS PROJECT: Press run and choose level by clicking on buttons
 AUTHORS: Maius Boncica and Martin Konecky
 USER INSTRUCTIONS:
-User can play 3 different levels:
+User can play 3 different levels.
+When choosing a level user will be redirect it to a list of instruction prior to start playing the selection.
  1.Galaxy Level
   Is a single player level where user can drive a space ship around Earth to protect the world from aliens.
 If is to close to the Sun Spaceship will have a rotation movement alerting user that is not in a safe are and score will decrease by 1.
