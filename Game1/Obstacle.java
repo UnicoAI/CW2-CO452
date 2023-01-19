@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Test for steps project.
+ * update 
  * 
  * @author Marius Boncica 
  * @version (1.01 8/12/2022)
@@ -10,17 +10,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Obstacle extends Actor
 {
     /**
-     * Act - do whatever the Obstacle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * declare variables
+     
      */
     int count;
     String obstacleName;
-    
+    /**
+     * constructor
+     * scale image
+     */
     public Obstacle(String obstacleName)
     {
     this.obstacleName = obstacleName;
     setImage(this.obstacleName);
     getImage().scale(50,50);    }
+    //method act for class bahaviour
+    //set location random
     public void act()
     {
        

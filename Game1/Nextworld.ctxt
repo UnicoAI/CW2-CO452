@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Nextworld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Nextworld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=NextworldName
-comment1.target=Nextworld(java.lang.String)
-comment2.params=
-comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Nextworld\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=3

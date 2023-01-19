@@ -1,6 +1,7 @@
 import greenfoot.*;
 import java.util.Random;
 /**
+ * *Metauniverse Multiplayer level
  * Author Marius Daniel Boncica
  * updated 14/12/2022
  */
@@ -12,12 +13,14 @@ import java.util.Random;
 
 public class MyWorld extends World
 {
+    //create Counter objects for player1 life and player 2 life counters
     public static Counter player1Life = new Counter();
     public static Counter player2Life = new Counter();
-    
+    //declare int timer and fix value for 1 minute
     private int timer = 1*60*55; //about 1 min at normal speed
+   //initiat mao and create table to arrange objects od specified positions
     int[][] map= { 
-{1,1,1,3,1,1,6,1,1,1,1,1,1,1,7,2},
+{1,1,1,3,1,1,6,1,1,1,1,1,1,1,1,2},
 {1,1,1,3,6,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -34,31 +37,35 @@ public class MyWorld extends World
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
+//create object random
     Random randgen = new Random();
+    //declare container, timer , Booster 
     public static int the_width = 900, the_height = 600, cell_size = 1;
     int cadran = 1, cadranTimerCounter = 1, cadranTimer = 250, spawnTimerCounterPrize = 0, spawnTimerPrize = 130, spawnTimerCounterBooster = 0, spawnTimerBooster = 260;
-  
+  //create objects of players
     Player1 alfa = new Player1("R.png");
    
     Player2 beta = new Player2("R1.png");
     //-----------------CONSTRUCTOR-------------------------
     public MyWorld()
-    {    
+    {    //define world size 
         super(900,600,1);
+        //use if function when creating objects and store objects to array
+       //array position will be refered in map above
         for(int i = 0; i<16;i++)
         for (int j =0; j<16; j++)
 if (map[i][j]==0)
-
+//create object of step1 and add it to array position 0
 addObject(new Step1("sunearth.gif"),j*50,i*50);
-
+//create object of Obstacleand add it to array position 2
 else if(map[i][j] == 2)
 addObject(new Obstacle("blackhole.png"),j*50,i*50);
 
 
-
+//create object of Obstacle and add it to array position 3
 else if (map[i][j] == 3)
 addObject(new Obstacle("beeper.png"),j*50,i*50);
-
+//create object of step1 and add it to array position 4
 else if (map[i][j] == 4)
 addObject(new Step1("sunearth.gif"),j*50,i*50);
 else if (map[i][j] == 5)
@@ -69,8 +76,8 @@ addObject(new Obstacle("blackhole.png"),j*50,i*50);}
 
 else if (map[i][j] == 7)
 
-addObject(new Nextworld("universe.jpeg"),j*50,i*50);
-
+addObject(new Asteroid("asteroid.png"),j*50,i*50);
+//call methods for this class object
         prepare();
         continuing();
         addObject(player1Life, 350,20);
@@ -82,7 +89,7 @@ addObject(new Nextworld("universe.jpeg"),j*50,i*50);
        Player2 p2 = new Player2("R1.png");
         addObject(p2,650,400);
     }
-    //-------------Set Cadrans for both players-------------------
+    //-------------Set background-------------------
     private void prepare(){
        
         GreenfootImage bkg = getBackground();
@@ -96,7 +103,7 @@ addObject(new Nextworld("universe.jpeg"),j*50,i*50);
         tinScor();
         
     }
-    //--------------------change cadran---------------*/
+    //--------------------act method to display timer and score---------------*/
     public void act(){
         if( Greenfoot.mouseClicked(null) )
            addObject(new prize(), 10 + randgen.nextInt()%(getWidth() - 10 + 1), 10 + randgen.nextInt()%(getHeight() - 10 + 1) );
@@ -120,14 +127,15 @@ else if(Player1.scor < Player2.scor){showText("Player2 WON ||| Score  " + Player
 showText("Player1 Loose ||| Score  "+ Player1.scor, 450,300);
 }
 
-       
+       //create a delay when time end
        Greenfoot.delay(10);
-        Greenfoot.setWorld(new Quit());
-        //quit world
+       //quit word and enter new world
+        Greenfoot.setWorld(new Menu());
+   
     }
   
     }
-    
+    //method to animate speed booster object
     private void checkForSpawningBoosters(){
         spawnTimerCounterBooster = (spawnTimerCounterBooster  + 1)%spawnTimerBooster;
         if( spawnTimerCounterBooster == 0){
@@ -136,6 +144,7 @@ showText("Player1 Loose ||| Score  "+ Player1.scor, 450,300);
             if(spawnTimerBooster == 0) spawnTimerBooster = 260; //initial value
         }
     }
+    //method to animate prize object
     private void checkForSpawningPrizes(){
         spawnTimerCounterPrize = (spawnTimerCounterPrize + 1)%spawnTimerPrize;
         if( spawnTimerCounterPrize == 0 ){
@@ -145,15 +154,14 @@ showText("Player1 Loose ||| Score  "+ Player1.scor, 450,300);
             if(spawnTimerPrize == 0) spawnTimerPrize = 130;//initial value
         }
     }
+    //set music -create object and declare song, volume and loop 
     private void setMusic(){
-        /*
-         * disclaimer for the song:
-         * Skrillex - Scary Monsters And Nice Sprites
-         */
+       
         GreenfootSound backgroundMusic = new GreenfootSound("nice_sp.mp3");
         backgroundMusic.setVolume(15);
         backgroundMusic.playLoop();
     }
+    //method to create stars
     private void createStars(int number) 
     {
         GreenfootImage background = getBackground();             
@@ -165,17 +173,19 @@ showText("Player1 Loose ||| Score  "+ Player1.scor, 450,300);
              background.setColorAt(x, y, new Color(color,color,color));
         }
     }
-    /** function price */
+   //method Prize OBJECT ON CLICK EVENT
     private void spawnPrize(){
         if( Greenfoot.mouseClicked(null) ){
             addObject(new prize(), 10 + randgen.nextInt()%(getWidth() - 10 + 1), 10 + randgen.nextInt()%(getHeight() - 10 + 1) );
         }
     }
+    //method SPEEDbOOSTER ONclick event
     private void spawnSpeedBooster(){
         if( Greenfoot.mouseClicked(null) ){
             addObject(new speedBooster(), 30+randgen.nextInt()%(getWidth() - 60 + 1), 30 + randgen.nextInt()%(getHeight() - 60 + 1) );
         }
     }
+    //method score to display score for players
     private void tinScor(){
         // player1:
         showText("Player 1- score: " + Player1.scor, 100, 20);

@@ -5,16 +5,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * UPDATE 14/12/2022
  */
 public class PlayerSingle extends Actor
-{
+{//declare variables
     public String  playerSingleImage;
     public static int scor = 0,  timerPrizeSound = 0, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
     static float speed = 1;
     static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
+   
+    /**
+ * constructor
+ * scale image
+ */
     public PlayerSingle(String playerSingleImage){
     this.playerSingleImage = playerSingleImage;
 
     getImage().scale(80,80);  }
+    /**
+ * act method: bahaviour of the class
+ * control, points, speed, shooting, touch class events, release class
+   */
     public void act() 
     {
         control();
@@ -24,6 +33,7 @@ public class PlayerSingle extends Actor
   fireProjectile();
          
     }
+    //method to shoot-create object on click event
      public void fireProjectile(){
         if(Greenfoot.mousePressed(null)){
              Projectile projectile = new Projectile();
@@ -49,7 +59,7 @@ public class PlayerSingle extends Actor
         
             
     }
-    
+    //method to add points if touching prize class + sound
     private void addPoints(){
         Actor points = getOneIntersectingObject(prize.class);
         if( isTouching(prize.class)){
@@ -77,7 +87,7 @@ public class PlayerSingle extends Actor
             }
         }
     }
-   
+   //method to remove Asteroid class + sound 
      private void moonLaunch(){
         Actor moon = getOneIntersectingObject(Asteroid.class);
             if ( Greenfoot.isKeyDown("space") && PlayerSingle.scor >= 10 && PlayerSingle.scor <100){
@@ -93,6 +103,7 @@ public class PlayerSingle extends Actor
             else
                 timerPrizeSound = 1;
             }
+            //method to increase speed if touching speedBooster class+ sound
     private void speedBooster(){
         Actor booster = getOneIntersectingObject(speedBooster.class);
         if( isTouching(speedBooster.class) ){

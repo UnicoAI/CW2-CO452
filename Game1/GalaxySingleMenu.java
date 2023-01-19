@@ -7,11 +7,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 12
  */
 public class GalaxySingleMenu extends Actor
+//create object of gif image 
 { GreenfootImage myGif = new GreenfootImage("Play1.png");
    
     /**
-     * Act - do whatever the Play wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor
+     * scale image
      */
     public GalaxySingleMenu(){
         GreenfootImage myGif = getImage();
@@ -19,7 +20,7 @@ public class GalaxySingleMenu extends Actor
         int w = (int)myGif.getWidth()/2;
         myGif.scale(h,w);
     }
-   
+   //method to animate behaviour on click event
     public void act()
     {if(Greenfoot.mousePressed(this))
         {getImage().scale((int)Math.round(getImage().getWidth()*0.9),
@@ -30,6 +31,7 @@ public class GalaxySingleMenu extends Actor
 
 if(Greenfoot.mouseClicked(this))
 {   Greenfoot.delay(5);
+    //on click event enter word Galaxy
     Greenfoot.setWorld(new Galaxy());
 }
 }

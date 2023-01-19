@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Quit here.
+ * Metauniverse Game level 2 description intro
  * 
  * @author (Marius Boncica) 
  * @version (version2 10/01/2022)
@@ -15,12 +15,12 @@ public class Galaxy2ndLevel extends World
      */
     public Galaxy2ndLevel()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 900x600 cells with a cell size of 1x1 pixels.
         super(900,600,1); 
-        
+        //add button to forward on Galaxy2ndLevel when clicked
         PlaySingle button = new PlaySingle();
         addObject(button,470,450);
-          
+          //arrange text display on screen
            showText("Single Player -  score: " + PlayerSingle.scor, 470, 50);
             showText("Drive Space Ship Around Earth To Protect Earth ", 300, 100);
             showText("Use Arrows to navigate ", 170, 140);
@@ -35,12 +35,14 @@ public class Galaxy2ndLevel extends World
           
        
     }
+    //set background black and add starts created with creatStars method
     public void prepare(){
          GreenfootImage bkg = getBackground();
         bkg.setColor(Color.BLACK);
         bkg.fill();
         createStars(300);
     }
+        //create method for stars
      private void createStars(int number) 
     {
         GreenfootImage background = getBackground();             

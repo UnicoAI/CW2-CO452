@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Play
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Play\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ button\ redirect\ to\ world\ MyWorld\r\n\ \r\n\ @Marius\ Boncica\r\n\ @3.19/01/2023\r\n
 comment1.params=
 comment1.target=Play()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Play\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ Constructor\r\n\ scale\ image\r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

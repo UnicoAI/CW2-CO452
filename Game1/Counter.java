@@ -27,8 +27,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * }
  * </pre>
  * 
- * @author Neil Brown and Michael Kölling 
- * @version 1.0
+ * @updates made by Marius Boncica
+ * @version 3.0
  */
 public class Counter extends Actor
 {

@@ -10,8 +10,8 @@ public class GalaxySingle extends Actor
 { GreenfootImage myGif = new GreenfootImage("Play1.png");
    
     /**
-     * Act - do whatever the Play wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * create an object og gif image
+     * Constructor class-adjust Height and width
      */
     public GalaxySingle(){
         GreenfootImage myGif = getImage();
@@ -19,7 +19,7 @@ public class GalaxySingle extends Actor
         int w = (int)myGif.getWidth()/2;
         myGif.scale(h,w);
     }
-   
+   // act method to describe animarion behaviour of class when clicked
     public void act()
     {if(Greenfoot.mousePressed(this))
         {getImage().scale((int)Math.round(getImage().getWidth()*0.9),

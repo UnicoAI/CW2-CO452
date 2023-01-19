@@ -23,5 +23,4 @@ comment8.params=number
 comment8.target=void\ createStars(int)
 comment9.params=
 comment9.target=void\ spawnPrize()
-comment9.text=function\ price
 numComments=12

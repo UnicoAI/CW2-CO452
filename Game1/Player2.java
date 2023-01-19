@@ -7,15 +7,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player2 extends Actor
 {
     public String player2Image;
-
+//declare variables
     static int scor = 0, timerPrizeSound = 0,  contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
     static float speed = 5;
     static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
-     public Player2(String player2Image){
+     
+    /**
+ * Constructor
+ * scale image
+ */
+    public Player2(String player2Image){
     this.player2Image = player2Image;
     setImage(this.player2Image);
     getImage().scale(100,100);  }
+    /**
+ * Act method- behaviour of class
+ * control, earn points, speed, touching asteroid, remove class, shooting
+ */
     public void act() 
     {
         control();
@@ -27,6 +36,7 @@ public class Player2 extends Actor
         fireProjectile();
         hitByProjectile1();
     }
+    //method to shoot-create object of a class
      public void fireProjectile(){
         if(Greenfoot.isKeyDown("Q")){
              Projectile2 projectile = new Projectile2();
@@ -49,12 +59,14 @@ public class Player2 extends Actor
         if( Greenfoot.isKeyDown("d") )
             setLocation( getX() + (int)speed, getY() );
     }
+    //method to remove Aasteroid class
      private void moonLaunch(){
         Actor moon = getOneIntersectingObject(Asteroid.class);
             if ( Greenfoot.isKeyDown("space") && Player2.scor >= 10 && Player1.scor <100){
           
                 getWorld().removeObject(moon);}
             }
+            //method to change movement if touching Asteroid class
             public void touchAsteroid(){
              if(isTouching(Asteroid.class)){
         setRotation(getRotation()+40);}  
@@ -70,7 +82,7 @@ public class Player2 extends Actor
                 timerPrizeSound = 1;
             }
             
-            
+            //method to add point when touching prize class + sound event
     private void earnPoints(){
         Actor price = getOneIntersectingObject(prize.class);
         
@@ -96,6 +108,7 @@ public class Player2 extends Actor
             }
         }
     }
+    //method to increase speed when touching speedBoostr class+sound
     private void speedBooster(){
         Actor booster = getOneIntersectingObject(speedBooster.class);
         if( isTouching(speedBooster.class) ){
@@ -121,6 +134,7 @@ public class Player2 extends Actor
             }
         }
     }
+    //method if touching projectile-remove life
  public void hitByProjectile1(){
         Actor projectile1 = getOneIntersectingObject(Projectile.class);
         

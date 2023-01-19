@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Quit here.
+ * Metauniverse Game level 3 description intro
  * 
  * @author (Marius Boncica) 
  * @version (version2 10/01/2022)
@@ -15,11 +15,12 @@ public class Galaxy3rdLevel extends World
      */
     public Galaxy3rdLevel()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 900x600 cells with a cell size of 1x1 pixels.
         super(900,600,1); 
-        
+         //add button to forward on Galaxy3rdLevel when clicked
         Play button = new Play();
         addObject(button,470,450);
+        //add text to screen and define position X AND Y
         showText("Player 1  -  score: " + Player1.scor, 150, 50);
            showText("Player 2 -  score: " + Player2.scor, 750, 50);
            
@@ -39,12 +40,14 @@ public class Galaxy3rdLevel extends World
           
        
     }
+        //set background black and add starts created with creatStars method
     public void prepare(){
          GreenfootImage bkg = getBackground();
         bkg.setColor(Color.BLACK);
         bkg.fill();
         createStars(300);
     }
+      //create method for stars
      private void createStars(int number) 
     {
         GreenfootImage background = getBackground();             

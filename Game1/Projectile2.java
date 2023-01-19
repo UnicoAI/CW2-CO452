@@ -1,20 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Projectile here.
+ * shooting projectile
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Marius Boncica
+ * @ version 319/01/2023
  */
 public class Projectile2 extends Actor
-{int speed = 10;
+{//declare variable speed and set value to 10
+    int speed = 10;
     /**
-     * Act - do whatever the Projectile wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+*constructor
+ * scale image
      */
     public Projectile2(){
         getImage().scale(30,30);
     }
+    /**
+ * Act Method
+ * move,remove projectile when touching edge, player1 clas, prize class
+ */
     public void act()
     {turnProjectile();
         move(speed);
@@ -27,12 +32,12 @@ public class Projectile2 extends Actor
        
        
         
-        
-        // Add your action code here.
+
     }
     public void turnProjectile(){
       
     }
+    //method to remove projectile if touching prize class
     public void hitprize(){
         Actor projectile2 = getOneIntersectingObject(prize.class);
         

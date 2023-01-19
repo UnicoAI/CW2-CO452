@@ -1,16 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PlayMenu here.
+ * Button redirect to Galaxy3rdLevel
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Marius Boncica
+ * @version (3 19/01/2023)
  */
 public class PlayMenu extends Actor
 { GreenfootImage myGif = new GreenfootImage("Play1.png");
     /**
-     * Act - do whatever the PlayMenu wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     *  Constructor--Scale Image
      */
     public PlayMenu(){
         GreenfootImage myGif = getImage();
@@ -18,6 +17,7 @@ public class PlayMenu extends Actor
         int w = (int)myGif.getWidth()/2;
         myGif.scale(h,w);
     }
+    //METHOD ACT DESCRIBE ANIMATION BEHAVIOUR OF IMAGE ON CLICK EVENT
     public void act()
     {if(Greenfoot.mousePressed(this))
         {getImage().scale((int)Math.round(getImage().getWidth()*0.9),
@@ -28,6 +28,7 @@ public class PlayMenu extends Actor
 
 if(Greenfoot.mouseClicked(this))
 {   Greenfoot.delay(5);
+    //REDIRECT ON CLICK EVENT TO WORLD Galaxy3rdLevel
     Greenfoot.setWorld(new Galaxy3rdLevel());
 }
 }

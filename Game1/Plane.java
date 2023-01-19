@@ -1,18 +1,27 @@
 import greenfoot.*;
-
+/**
+ * Author: Marius Daniel Boncica- Group project
+ * UPDATE 19/01/2023
+ */
 public class Plane extends ScrollActors
-{
+{//declare variables score, prizecount booster speed
+    //sound event
     public String  PlaneImage;
      public static int score = 0, planeLife = 0, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
     static int speed = 1;
       static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
 
-     // current speed
+     // constructor: scale image
      public Plane(String PlaneImage){
     this.PlaneImage = PlaneImage;
 
     getImage().scale(150,150);}
+    /**
+ * Act Method
+ * Control behaviour using arrows
+ * add points, shooting
+ */
     public void act()
     {
         // adjusting the rotation
@@ -38,6 +47,7 @@ public class Plane extends ScrollActors
         
        
     }
+    //method to shoot- create object of projectile class
      public void fireProjectile(){
         if(Greenfoot.mousePressed(null)){
              Projectile projectile = new Projectile();
@@ -46,6 +56,7 @@ public class Plane extends ScrollActors
     
     }
     }
+    //method to add points if touching Earth and Mars class
      private void addPoints(){
         Actor points = getOneIntersectingObject(Earth.class);
          
@@ -62,21 +73,22 @@ public class Plane extends ScrollActors
             
 }
 }
+//method to remove points if touching Sun class or Enemy Class
 private void removePoints(){
         Actor points = getOneIntersectingObject(Sun.class);
         if( isTouching(Sun.class ) ){
            
                 score--;
                       
-        setRotation(getRotation()+40);
-        
+        setRotation(getRotation()+40);//set rotation when touching Sun class
+        //score will decrease as long as plane will rotate near Sun class
             
 }
  Actor points2 = getOneIntersectingObject(Enemy.class);
         if( isTouching(Enemy.class ) ){
             
-                score--;
-               
+                score--;//decrease score
+               //score will decrease as long as Enemy rotates around Plane
             
 }
 }

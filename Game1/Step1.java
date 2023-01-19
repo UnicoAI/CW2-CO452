@@ -1,32 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Test for steps project.
+ *Step1-- center background of the world modified for 3d effect
  * 
  * @author Marius Boncica 
  * @version (1.01 8/12/2022)
  */
+//constructor gif image
 public class Step1 extends Actor
 {
     private String img;
     private GifImage gif;
     GifImage myGif = new GifImage("sunearth.gif");
 
-    /**
-     * Act - do whatever the Step1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
-    
-    
-
+  
    public Step1(String img)
     {
      this.img = img;
         gif = new GifImage( img );
       
   }
-
+//act method: set image current
     public void act()
     { 
 setImage( myGif.getCurrentImage() );

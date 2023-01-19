@@ -3,7 +3,7 @@ import greenfoot.*;
 //Author : Marius Boncica
 //Updated jan  2023
 public class Enemy extends ScrollActors
-{
+{//declare variables for speed, rotation angle, created
     public String NameImage;
     public static Actor scoreDisp; 
     public static int created; // class counts
@@ -12,17 +12,23 @@ public class Enemy extends ScrollActors
     private int angle = 175*QVAL+Greenfoot.getRandomNumber(10*QVAL+1); // angular direction
     private int speed = QVAL/2+Greenfoot.getRandomNumber(2*QVAL)+created; // velocity
     
+    
+    //constructor
     public Enemy()
     {
         created++; // bump counter
         setBoundedAction(REMOVE, 50); // set bounded action to remove when 50 past edge
     }
+    //scale image
     public Enemy(String NameImage){
          this.NameImage = NameImage;;
 
     getImage().scale(150,150);
     }
-    
+    /**
+ * act method: 
+ * touch Plane class and turn
+ */
     public void act()
     {
         touchPlane();// turning
@@ -34,6 +40,7 @@ public class Enemy extends ScrollActors
         touchProjectile();
       
     }
+    //method to remove this object when touching projectile class
     public void touchProjectile(){
         Actor bullet = getOneIntersectingObject(Projectile.class);
         if( isTouching(Projectile.class ) ){
@@ -43,6 +50,7 @@ public class Enemy extends ScrollActors
             
                
     }
+    //method to create rotation when touching Plane class
     public void touchPlane(){
         
          int dir = 1-2*((getRotation()+90)/180);

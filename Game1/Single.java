@@ -1,23 +1,21 @@
 import greenfoot.*;
 import java.util.Random;
 /**
- * Author Marius Daniel Boncica
+ * *Metauniverse game level 2 single player world 
+ * Author Marius Daniel Boncica and Martin Konecky
  * updated 14/12/2022
  */
- 
-/**
- *
- *
- */
+
 
 public class Single extends World
-{
+{//create an object on counter class
     public static Counter playerSingleLife = new Counter();
     
-    
+    //declare int timer and fix value to 1 minute
     private int timer = 1*60*55; //about 1 min at normal speed
+    //initiate map table made by array of objects items created
     int[][] map= { 
-{1,1,1,3,1,1,6,1,1,1,1,1,1,1,7,2},
+{1,1,1,3,1,1,6,1,1,1,1,1,1,1,1,2},
 {1,1,1,3,6,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -34,10 +32,11 @@ public class Single extends World
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
+//declare variables as timer, counter, points, booster, spees
     Random randgen = new Random();
     public static int the_width = 900, the_height = 600, cell_size = 1;
     int spawnTimerCounterPrize = 0, spawnTimerPrize = 130, spawnTimerCounterBooster = 0, spawnTimerBooster = 260;
-  
+  //create an object of class PlayerSingle
     PlayerSingle alfa = new PlayerSingle("R1.png");
   
    
@@ -48,6 +47,8 @@ public class Single extends World
         super(900,600,1);
         for(int i = 0; i<16;i++)
         for (int j =0; j<16; j++)
+        //create an array of objects and allocate objects to specific location
+        //use array index to position on map above
 if (map[i][j]==0)
 
 addObject(new Step1("sunearth.gif"),j*50,i*50);
@@ -70,8 +71,8 @@ addObject(new Obstacle("blackhole.png"),j*50,i*50);}
 
 else if (map[i][j] == 7)
 
-addObject(new Nextworld("sun.gif"),j*50,i*50);
-
+addObject(new Asteroid("asteroid.png"),j*50,i*50);
+//call methods for this class
         prepare();
         continuing();
         addObject(new PlayerSingle("R1.png"),450,450);
@@ -82,7 +83,7 @@ addObject(new Nextworld("sun.gif"),j*50,i*50);
        
         
     }
-    //-------------Set Cadrans for both players-------------------
+    //-------------Set Background-------------------
     private void prepare(){
        
         GreenfootImage bkg = getBackground();
@@ -96,17 +97,18 @@ addObject(new Nextworld("sun.gif"),j*50,i*50);
         tinScor();
         
     }
-    //--------------------change cadran---------------*/
+    //--------------------method act ---------------*/
+    
     public void act(){
         if( Greenfoot.mouseClicked(null) )
            addObject(new prize(), 10 + randgen.nextInt()%(getWidth() - 10 + 1), 10 + randgen.nextInt()%(getHeight() - 10 + 1) );
-
+//call bolean function
         checkForSpawningPrizes();
         checkForSpawningBoosters();
-       
+     //display score  
         tinScor();
       
-       
+       //completion text to show on screen related to score value
          if (--timer == 0)
     {
         removeObjects(getObjects(null)); 
@@ -118,14 +120,15 @@ else if(Player1.scor == 0){
         showText("Try Again " + PlayerSingle.scor, 450,300);
 }
      Greenfoot.delay(10);
-    Greenfoot.setWorld(new Quit());
+     //delay next step
+    Greenfoot.setWorld(new Menu());
         //quit world
 
     
     }
       
     }
-  
+  //booster method animation
     private void checkForSpawningBoosters(){
         spawnTimerCounterBooster = (spawnTimerCounterBooster  + 1)%spawnTimerBooster;
         if( spawnTimerCounterBooster == 0){
@@ -134,6 +137,7 @@ else if(Player1.scor == 0){
             if(spawnTimerBooster == 0) spawnTimerBooster = 260; //initial value
         }
     }
+    //prize objects method animation
     private void checkForSpawningPrizes(){
         spawnTimerCounterPrize = (spawnTimerCounterPrize + 1)%spawnTimerPrize;
         if( spawnTimerCounterPrize == 0 ){
@@ -145,13 +149,14 @@ else if(Player1.scor == 0){
     }
     private void setMusic(){
         /*
-         * disclaimer for the song:
+         * set music
          * Skrillex - Scary Monsters And Nice Sprites
          */
         GreenfootSound backgroundMusic = new GreenfootSound("nice_sp.mp3");
         backgroundMusic.setVolume(15);
         backgroundMusic.playLoop();
     }
+    //method to create stars
     private void createStars(int number) 
     {
         GreenfootImage background = getBackground();             
@@ -163,17 +168,19 @@ else if(Player1.scor == 0){
              background.setColorAt(x, y, new Color(color,color,color));
         }
     }
-    /** function price */
+    /** method prize object on click event */
     private void spawnPrize(){
         if( Greenfoot.mouseClicked(null) ){
             addObject(new prize(), 10 + randgen.nextInt()%(getWidth() - 10 + 1), 10 + randgen.nextInt()%(getHeight() - 10 + 1) );
         }
     }
+    /** method spedBooster object on click event */
     private void spawnSpeedBooster(){
         if( Greenfoot.mouseClicked(null) ){
             addObject(new speedBooster(), 30+randgen.nextInt()%(getWidth() - 60 + 1), 30 + randgen.nextInt()%(getHeight() - 60 + 1) );
         }
     }
+    //add text with score and speed to be displayed on screen
     private void tinScor(){
         // player1:
         showText("Score: " + PlayerSingle.scor, 100, 20);

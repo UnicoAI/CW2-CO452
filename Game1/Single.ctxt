@@ -1,10 +1,11 @@
 #BlueJ class context
 comment0.target=Single
-comment0.text=\r\n\r\n\r\n
+comment0.text=\r\n\ *Metauniverse\ game\ level\ 2\ single\ player\ world\ \r\n\ Author\ Marius\ Daniel\ Boncica\ and\ Martin\ Konecky\r\n\ updated\ 14/12/2022\r\n
 comment1.params=
 comment1.target=Single()
 comment10.params=
 comment10.target=void\ spawnSpeedBooster()
+comment10.text=method\ spedBooster\ object\ on\ click\ event
 comment11.params=
 comment11.target=void\ tinScor()
 comment2.params=
@@ -23,5 +24,5 @@ comment8.params=number
 comment8.target=void\ createStars(int)
 comment9.params=
 comment9.target=void\ spawnPrize()
-comment9.text=function\ price
+comment9.text=method\ prize\ object\ on\ click\ event
 numComments=12

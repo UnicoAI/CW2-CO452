@@ -5,6 +5,7 @@ comment1.params=player1Image
 comment1.target=Player1(java.lang.String)
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Method\ act\r\n\ call\ methods\ to\ control\ adpoints,\ speed\ booster,\ drop\ items,\ shoot\ projectile\r\n
 comment3.params=
 comment3.target=void\ fireProjectile()
 comment4.params=

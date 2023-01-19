@@ -1,16 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Play here.
+ * button redirect to world MyWorld
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Marius Boncica
+ * @3.19/01/2023
  */
 public class Play extends Actor
+//create object of gif 
 { GreenfootImage myGif = new GreenfootImage("Play1.png");
     /**
-     * Act - do whatever the Play wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor
+     * scale image
      */
     public Play(){
         GreenfootImage myGif = getImage();
@@ -18,6 +19,7 @@ public class Play extends Actor
         int w = (int)myGif.getWidth()/2;
         myGif.scale(h,w);
     }
+    //behaviour of image on click event
     public void act()
     {if(Greenfoot.mousePressed(this))
         {getImage().scale((int)Math.round(getImage().getWidth()*0.9),
@@ -28,6 +30,8 @@ public class Play extends Actor
 
 if(Greenfoot.mouseClicked(this))
 {   Greenfoot.delay(5);
+    
+    //redirect event on click to world MyWorld
     Greenfoot.setWorld(new MyWorld());
 }
 }
