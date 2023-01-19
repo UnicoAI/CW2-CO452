@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player1 extends Actor
 {
     public String  player1Image;
-    public static int scor = 0, cadran = 1,  timerPrizeSound = 0, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
-    static float speed = 1;
+    public static int scor = 0,  timerPrizeSound = 0, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
+    static float speed = 5;
     static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
     public Player1(String player1Image){
@@ -20,9 +20,12 @@ public class Player1 extends Actor
         control();
         addPoints();
         speedBooster();
+        touchAsteroid();
+       
         moonLaunch();
        fireProjectile();
        hitByProjectile2();
+       
          
     }
     public void fireProjectile(){
@@ -64,24 +67,9 @@ public class Player1 extends Actor
         Actor points = getOneIntersectingObject(prize.class);
         if( isTouching(prize.class) ){
             scor++;
-            
-            MyWorld world = (MyWorld) getWorld();
-            switch(cadran)
-            {
-                case 1:
-                    if( points.getX() >= world.the_width/2 && points.getY() <= world.the_height/2 ) scor += 2;
-                    break;
-                case 2:
-                    if( points.getX() <= world.the_width/2 && points.getY() <= world.the_height/2 ) scor += 2;
-                    break;
-                case 3:
-                    if( points.getX() <= world.the_width/2 && points.getY() >= world.the_height/2 ) scor += 2;
-                    break;
-                case 4:
-                    if( points.getX() >= world.the_width/2 && points.getY() >= world.the_height/2 ) scor += 2;
-                    break;
-             }
             getWorld().removeObject(points);
+            MyWorld world = (MyWorld) getWorld();
+           
             if( !prizeSoundOn )
             {
                 prizeSoundOn = true;
@@ -103,12 +91,19 @@ public class Player1 extends Actor
     }
     
      private void moonLaunch(){
-        Actor moon = getOneIntersectingObject(Moon.class);
-            if ( Greenfoot.isKeyDown("space") && Player1.scor >= 3 && Player1.scor <10){
+        Actor moon = getOneIntersectingObject(Asteroid.class);
+            if ( Greenfoot.isKeyDown("space") && Player1.scor >= 10 && Player1.scor <100){
           
                 getWorld().removeObject(moon);
+            }
+        }
+        private void touchAsteroid(){
             
-        }if( !prizeSoundOn )
+        
+        if(isTouching(Asteroid.class)){
+        setRotation(getRotation()+40);}
+   
+        if( !prizeSoundOn )
             {
                prizeSoundOn = true;
                prizeSound.playLoop();
@@ -117,6 +112,7 @@ public class Player1 extends Actor
             else
                 timerPrizeSound = 1;
             }
+        
     private void speedBooster(){
         Actor booster = getOneIntersectingObject(speedBooster.class);
         if( isTouching(speedBooster.class) ){

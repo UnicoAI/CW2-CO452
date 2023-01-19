@@ -12,7 +12,7 @@ public class Plane extends ScrollActors
      public Plane(String PlaneImage){
     this.PlaneImage = PlaneImage;
 
-    getImage().scale(200,200);}
+    getImage().scale(150,150);}
     public void act()
     {
         // adjusting the rotation
@@ -31,9 +31,11 @@ public class Plane extends ScrollActors
         if (speed > 5*QVAL) speed = 5*QVAL;
         // moving
         move(speed);
+      
          removePoints();
         fireProjectile();
         addPoints();
+        
        
     }
      public void fireProjectile(){
@@ -48,28 +50,36 @@ public class Plane extends ScrollActors
         Actor points = getOneIntersectingObject(Earth.class);
          
         if( isTouching(Earth.class) ){
-            getWorld().removeObject(points);
+             
                 score++;
+             
             
 }Actor points2 = getOneIntersectingObject(Mars.class);
     if( isTouching(Mars.class) ){
-            getWorld().removeObject(points2);
+            
                 score++;
+                
             
 }
 }
 private void removePoints(){
         Actor points = getOneIntersectingObject(Sun.class);
         if( isTouching(Sun.class ) ){
-            getWorld().removeObject(points);
+           
                 score--;
+                      
+        setRotation(getRotation()+40);
+        
             
 }
  Actor points2 = getOneIntersectingObject(Enemy.class);
         if( isTouching(Enemy.class ) ){
-            getWorld().removeObject(points2);
+            
                 score--;
+               
             
 }
 }
+
 }
+

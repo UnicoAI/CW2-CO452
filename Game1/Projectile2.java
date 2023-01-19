@@ -18,10 +18,11 @@ public class Projectile2 extends Actor
     public void act()
     {turnProjectile();
         move(speed);
+        hitprize(); 
          if(isAtEdge()) move(0);
         if(isTouching(Player1.class))
           getWorld().removeObject(this);
-                  
+                 
             
        
        
@@ -32,4 +33,15 @@ public class Projectile2 extends Actor
     public void turnProjectile(){
       
     }
+    public void hitprize(){
+        Actor projectile2 = getOneIntersectingObject(prize.class);
+        
+            if(isTouching(prize.class)){
+                 
+                getWorld().removeObject(projectile2);
+                 
+                
+                
+            }
+        }
 }

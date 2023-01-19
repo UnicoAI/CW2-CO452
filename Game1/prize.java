@@ -7,6 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class prize extends Actor
 {GifImage myGif = new GifImage("satelit.gif");
     int speed = 3;
+
     public void act() 
     {
         move(speed);
@@ -14,12 +15,15 @@ public class prize extends Actor
       hitByProjectile1();
       hitByProjectile2();
     } 
+    public prize(){}
    
      public void hitByProjectile2(){
         Actor projectile2 = getOneIntersectingObject(Projectile2.class);
         
             if(isTouching(Projectile2.class)){
+                 
                 getWorld().removeObject(projectile2);
+                 
                 MyWorld.player2Life.add(1);
                 
                 
@@ -29,7 +33,9 @@ public class prize extends Actor
         Actor projectile = getOneIntersectingObject(Projectile.class);
         
             if(isTouching(Projectile.class)){
+                
                 getWorld().removeObject(projectile);
+                
                 MyWorld.player1Life.add(1);
                 Single.playerSingleLife.add(1);
                  

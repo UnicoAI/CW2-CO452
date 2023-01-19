@@ -17,14 +17,14 @@ public class WorldLevel1 extends Scroll
         setScrollSpeed(2);
         // the ship
         addObject(ship = new Plane("spaces11.png"), getWidth()/8, getHeight()/8);
-   Enemy.created = 0;
+   
       
         
-       // the actor to display the score (number of avoided rocks)
+       // add enemey object
         addObject(Enemy.scoreDisp = new Actor(){}, 80, 20);
         Enemy.scoreDisp.setImage(new GreenfootImage(1, 1));
-         Sun.created = 0;
-    Sun.unhit = 0;
+         Enemy.created = 0;
+    
         
        // the actor to display the score (number of avoided rocks)
         addObject(Sun.scoreDisp = new Actor(){}, 40, 40);
@@ -59,7 +59,7 @@ public class WorldLevel1 extends Scroll
         // scroll background image
         scrollBackground();
         // spawn rocks (with increasing frequency)
-        if (Greenfoot.getRandomNumber(100-Enemy.created/10) == 0)
+        if (Greenfoot.getRandomNumber(200-Enemy.created/10) == 0)
         {
             int y = Greenfoot.getRandomNumber(getHeight());
             addObject(new Enemy(), getWidth()+40, y);

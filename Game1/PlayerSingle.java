@@ -79,8 +79,8 @@ public class PlayerSingle extends Actor
     }
    
      private void moonLaunch(){
-        Actor moon = getOneIntersectingObject(Moon.class);
-            if ( Greenfoot.isKeyDown("space") && PlayerSingle.scor >= 3 && PlayerSingle.scor <10){
+        Actor moon = getOneIntersectingObject(Asteroid.class);
+            if ( Greenfoot.isKeyDown("space") && PlayerSingle.scor >= 10 && PlayerSingle.scor <100){
           
                 getWorld().removeObject(moon);
             

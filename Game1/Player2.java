@@ -8,8 +8,8 @@ public class Player2 extends Actor
 {
     public String player2Image;
 
-    static int scor = 0, timerPrizeSound = 0, cadran=1, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
-    static float speed = 1;
+    static int scor = 0, timerPrizeSound = 0,  contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
+    static float speed = 5;
     static boolean prizeSoundOn = false, boosterSoundOn = false;
     static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
      public Player2(String player2Image){
@@ -21,6 +21,8 @@ public class Player2 extends Actor
         control();
         earnPoints();
         speedBooster();
+        touchAsteroid();
+       
         moonLaunch();
         fireProjectile();
         hitByProjectile1();
@@ -48,11 +50,15 @@ public class Player2 extends Actor
             setLocation( getX() + (int)speed, getY() );
     }
      private void moonLaunch(){
-        Actor moon = getOneIntersectingObject(Moon.class);
-            if ( Greenfoot.isKeyDown("space") && Player2.scor >= 3 && Player1.scor <10){
+        Actor moon = getOneIntersectingObject(Asteroid.class);
+            if ( Greenfoot.isKeyDown("space") && Player2.scor >= 10 && Player1.scor <100){
           
-                getWorld().removeObject(moon);
-               }
+                getWorld().removeObject(moon);}
+            }
+            public void touchAsteroid(){
+             if(isTouching(Asteroid.class)){
+        setRotation(getRotation()+40);}  
+            
         
     if( !prizeSoundOn )
             {
@@ -62,29 +68,17 @@ public class Player2 extends Actor
             }
             else
                 timerPrizeSound = 1;
-            } 
+            }
+            
+            
     private void earnPoints(){
         Actor price = getOneIntersectingObject(prize.class);
         
         if( isTouching(prize.class) ){
             scor++;
+            getWorld().removeObject(price);
             MyWorld world = (MyWorld) getWorld();
-            switch(cadran)
-            {
-                case 1:
-                    if( price.getX() >= world.the_width/2 && price.getY() <= world.the_height/2 ) scor += 2;
-                    break;
-                case 2:
-                    if( price.getX() <= world.the_width/2 && price.getY() <= world.the_height/2 ) scor += 2;
-                    break;
-                case 3:
-                    if( price.getX() <= world.the_width/2 && price.getY() >= world.the_height/2 ) scor += 2;
-                    break;
-                case 4:
-                    if( price.getX() >= world.the_width/2 && price.getY() >= world.the_height/2 ) scor += 2;
-                    break;
-             }
-            getWorld().removeObject( price );
+          
             if( !prizeSoundOn )
             {
                prizeSoundOn = true;

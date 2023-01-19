@@ -16,18 +16,33 @@ public class Projectile extends Actor
         getImage().scale(30,30);
     }
     public void act()
-    {turnProjectile();
+    {hitEnemy();
         move(speed);
-        if(isAtEdge()) move(0);
-        if(isTouching(Player2.class))
+        hitprize();
+         if(isTouching(Player2.class))
           getWorld().removeObject(this);
-                 
-            
+        else if(isAtEdge())
+        getWorld().removeObject(this); 
+        
+        
        
        
         // Add your action code here.
     }
-    public void turnProjectile(){
-      
+    public void hitEnemy(){
+      Actor enemy1 = getOneIntersectingObject(Enemy.class);
+        if( isTouching(Enemy.class))
+            getWorld().removeObject(enemy1);
     }
+     public void hitprize(){
+        Actor projectile = getOneIntersectingObject(prize.class);
+        
+            if(isTouching(prize.class)){
+                 
+                getWorld().removeObject(projectile);
+                 
+                
+                
+            }
+        }
 }
