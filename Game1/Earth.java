@@ -19,7 +19,7 @@ public class Earth extends ScrollActors
     public Earth(String NameImage){
          this.NameImage = NameImage;;
 
-    getImage().scale(30,30);
+    getImage().scale(1,1);
     }
     
     public void act()

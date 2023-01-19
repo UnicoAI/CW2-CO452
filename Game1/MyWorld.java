@@ -20,13 +20,13 @@ public class MyWorld extends World
 {1,1,1,3,1,1,6,1,1,1,1,1,1,1,7,2},
 {1,1,1,3,6,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,1},
+{1,1,1,6,1,1,1,1,1,5,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+{1,1,1,1,1,1,1,1,1,1,5,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {5,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -38,9 +38,9 @@ public class MyWorld extends World
     public static int the_width = 900, the_height = 600, cell_size = 1;
     int cadran = 1, cadranTimerCounter = 1, cadranTimer = 250, spawnTimerCounterPrize = 0, spawnTimerPrize = 130, spawnTimerCounterBooster = 0, spawnTimerBooster = 260;
   
-    Player1 alfa = new Player1("R.png");
+    Player1 alfa = new Player1("R1.png");
    
-    Player2 beta = new Player2("R1.png");
+    Player2 beta = new Player2("R.png");
     //-----------------CONSTRUCTOR-------------------------
     public MyWorld()
     {    
@@ -62,7 +62,7 @@ addObject(new Obstacle("beeper.png"),j*50,i*50);
 else if (map[i][j] == 4)
 addObject(new Step1("sunearth.gif"),j*50,i*50);
 else if (map[i][j] == 5)
-addObject(new Asteroid("asteroid.png"),j*50,i*50);
+addObject(new Moon("moon.png"),j*100,i*100);
 else if (map[i][j] == 6){
 
 addObject(new Obstacle("blackhole.png"),j*50,i*50);}
@@ -77,9 +77,9 @@ addObject(new Nextworld("universe.jpeg"),j*50,i*50);
         addObject(player2Life, 550,20);
         player1Life.setValue(5);
         player2Life.setValue(5);
-        Player1 p1 = new Player1("R.png");
+        Player1 p1 = new Player1("R1.png");
        addObject(p1, 350,400);
-       Player2 p2 = new Player2("R1.png");
+       Player2 p2 = new Player2("R.png");
         addObject(p2,650,400);
     }
     //-------------Set Cadrans for both players-------------------
