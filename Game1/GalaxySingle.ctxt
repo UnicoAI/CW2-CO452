@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=GalaxySingle
+comment0.text=\r\n\ Game\ Cw2\r\n\ \r\n\ @Marius\ Boncica\ &\ Martin\ Konecny\r\n\ @version\ 12\r\n
+comment1.params=
+comment1.target=GalaxySingle()
+comment1.text=\r\n\ create\ an\ object\ og\ gif\ image\r\n\ Constructor\ class-adjust\ Height\ and\ width\r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3

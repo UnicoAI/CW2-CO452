@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Obstacle
+comment0.text=\r\n\ update\ \r\n\ \r\n\ @author\ Marius\ Boncica\ \r\n\ @version\ (1.01\ 8/12/2022)\r\n
+comment1.params=obstacleName
+comment1.target=Obstacle(java.lang.String)
+comment1.text=\r\n\ constructor\r\n\ scale\ image\r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3

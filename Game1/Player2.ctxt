@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Player2
+comment0.text=\r\n\ Author\ Marius\ Daniel\ Boncica\r\n\ updated\ 14/12/2022\r\n
+comment1.params=player2Image
+comment1.target=Player2(java.lang.String)
+comment1.text=\r\n\ Constructor\r\n\ scale\ image\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method-\ behaviour\ of\ class\r\n\ control,\ earn\ points,\ speed,\ touching\ asteroid,\ remove\ class,\ shooting\r\n
+comment3.params=
+comment3.target=void\ fireProjectile()
+comment4.params=
+comment4.target=void\ control()
+comment4.text=movement******************
+comment5.params=
+comment5.target=void\ moonLaunch()
+comment6.params=
+comment6.target=void\ touchAsteroid()
+comment7.params=
+comment7.target=void\ earnPoints()
+comment8.params=
+comment8.target=void\ speedBooster()
+comment9.params=
+comment9.target=void\ hitByProjectile1()
+numComments=10

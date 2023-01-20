@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Projectile
+comment0.text=\r\n\ Shooting\ projectile.\r\n\ \r\n\ @Marius\ Boncica\ \r\n\ @version\ (3\ 19/01/2023)\r\n
+comment1.params=
+comment1.target=Projectile()
+comment1.text=\r\nconstructor\r\nscale\ image\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\:\ behavior\ of\ class\r\n\ remove\ if\ touching\ Player2\ class\r\n\ *remove\ is\ at\ the\ edge\ of\ world\ or\ enemy\r\n
+comment3.params=
+comment3.target=void\ hitEnemy()
+comment4.params=
+comment4.target=void\ hitprize()
+numComments=5

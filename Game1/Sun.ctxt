@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Sun
+comment0.text=\r\n\ Author\:\ Marius\ Daniel\ Boncica-\ Group\ project\r\n\ UPDATE\ 14/12/2022\r\n
+comment1.params=
+comment1.target=Sun()
+comment1.text=\r\n\ CONSTRUCTOR\r\nCOUNT\ CREATED\ AND\ REMOVE\ PAST\ 50\ AT\ THE\ EDGE\ OF\ WORLD\r\n
+comment2.params=NameImage
+comment2.target=Sun(java.lang.String)
+comment3.params=
+comment3.target=void\ act()
+numComments=4
