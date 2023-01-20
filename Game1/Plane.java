@@ -44,6 +44,7 @@ public class Plane extends ScrollActors
          removePoints();
         fireProjectile();
         addPoints();
+        removeSun();
         
        
     }
@@ -67,7 +68,7 @@ public class Plane extends ScrollActors
             
 }Actor points2 = getOneIntersectingObject(Mars.class);
     if( isTouching(Mars.class) ){
-            
+            getWorld().removeObject(points2);
                 score++;
                 
             
@@ -77,8 +78,8 @@ public class Plane extends ScrollActors
 private void removePoints(){
         Actor points = getOneIntersectingObject(Sun.class);
         if( isTouching(Sun.class ) ){
-           
-                score--;
+           getWorld().showText("Avoid Sun! You Will Melt!!!Press SPACEBAR",100,400);
+             score--;   
                       
         setRotation(getRotation()+40);//set rotation when touching Sun class
         //score will decrease as long as plane will rotate near Sun class
@@ -92,6 +93,16 @@ private void removePoints(){
             
 }
 }
+// remove sun if score > 10
+ private void removeSun(){
+        Actor sun1 = getOneIntersectingObject(Sun.class);
+            if ( Greenfoot.isKeyDown("space") ){
+          
+                getWorld().removeObject(sun1);
+               getWorld().showText("Sun Removed!!!", 400, 400);
+            
+        }
+    }
 
 }
 
