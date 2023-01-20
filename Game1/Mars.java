@@ -1,11 +1,12 @@
-import greenfoot.*;
+import greenfoot.Actor;
+
 /**
  * Author: Marius Daniel Boncica- Group project
  * UPDATE 14/12/2022
  */
 
 public class Mars extends ScrollActors
-{//declare variable score, speed, rotation angle
+{//declare variable for speed, angle rotation, score
     public String NameImage;
     public static Actor scoreDisp; // actor displaying number of avoided rocks (unhit)
     public static int created, unhit; // class counts
@@ -13,7 +14,7 @@ public class Mars extends ScrollActors
     private int rSpeed = 2*QVAL-Greenfoot.getRandomNumber(4*QVAL+1); // tumble rate
     private int angle = 175*QVAL+Greenfoot.getRandomNumber(10*QVAL+1); // angular direction
     private int speed = QVAL/2+Greenfoot.getRandomNumber(2*QVAL)+created; // velocity
-    //constructor
+    //constructor 
     public Mars()
     {
         created++; // bump counter
@@ -25,7 +26,7 @@ public class Mars extends ScrollActors
 
     getImage().scale(30,30);
     }
-    //act method tirn rotate and move
+    //act method of class
     public void act()
     {
         // turning
