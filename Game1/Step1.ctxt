@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Step1
-comment0.text=\r\nStep1--\ center\ background\ of\ the\ world\ modified\ for\ 3d\ effect\r\n\ \r\n\ @author\ Marius\ Boncica\ \r\n\ @version\ (1.01\ 8/12/2022)\r\n
-comment1.params=img
-comment1.target=Step1(java.lang.String)
-comment2.params=
-comment2.target=void\ act()
-numComments=3

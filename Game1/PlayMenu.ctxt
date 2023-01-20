@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=PlayMenu
-comment0.text=\r\n\ Button\ redirect\ to\ Galaxy3rdLevel\r\n\ \r\n\ @Marius\ Boncica\r\n\ @version\ (3\ 19/01/2023)\r\n
-comment1.params=
-comment1.target=PlayMenu()
-comment1.text=\r\n\ \ Constructor--Scale\ Image\r\n
-comment2.params=
-comment2.target=void\ act()
-numComments=3
