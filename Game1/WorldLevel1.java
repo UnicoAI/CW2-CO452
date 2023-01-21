@@ -24,7 +24,9 @@ public class WorldLevel1 extends Scroll
         setScrollSpeed(2);
         // the ship
         addObject(ship = new Plane("spaces11.png"), getWidth()/8, getHeight()/8);
-   
+   //add ASTEROID
+   Asteroid asteroid1= new Asteroid("asteroid.png");
+   addObject(asteroid1,650,100);
       
         
        // add enemey object
@@ -66,6 +68,8 @@ public class WorldLevel1 extends Scroll
     
         // scroll background image
         scrollBackground();
+        //SET MUSIC
+       
         // spawn alienships (with increasing frequency)
         if (Greenfoot.getRandomNumber(200-Enemy.created/10) == 0)
         {
@@ -106,5 +110,6 @@ Greenfoot.delay(5);
 Greenfoot.setWorld(new Menu());
    }
 }
+
     
 }

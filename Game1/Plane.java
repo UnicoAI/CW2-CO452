@@ -7,11 +7,9 @@ public class Plane extends ScrollActors
 {//declare variables score, prizecount booster speed
     //sound event
     public String  PlaneImage;
-     public static int score = 0, planeLife = 0, contorPrizeSound = 10, timerBoosterSound = 0, contorBoosterSound = 10;
+     public static int score = 0;
     static int speed = 1;
-      static boolean prizeSoundOn = false, boosterSoundOn = false;
-    static GreenfootSound prizeSound = new GreenfootSound("cherry_sound(short_buzzer_sound).wav"), boosterSound = new GreenfootSound("burger_sound(sci_fi_drill_alert).wav");
-
+    
      // constructor: scale image
      public Plane(String PlaneImage){
     this.PlaneImage = PlaneImage;
@@ -27,13 +25,13 @@ public class Plane extends ScrollActors
         // adjusting the rotation
         
         int dr = 0;
-        if (Greenfoot.isKeyDown("right")) dr++;
-        if (Greenfoot.isKeyDown("left")) dr--;
+        if (Greenfoot.isKeyDown("d")) dr++;
+        if (Greenfoot.isKeyDown("a")) dr--;
         turn(dr*QVAL);
         // adjusting the speed
         int ds = 0;
-        if (Greenfoot.isKeyDown("up")) ds++;
-        if (Greenfoot.isKeyDown("down")) ds--;
+        if (Greenfoot.isKeyDown("w")) ds++;
+        if (Greenfoot.isKeyDown("s")) ds--;
         speed += ds;
         // limiting the speed
         if (speed < 0) speed = 0;
@@ -44,7 +42,11 @@ public class Plane extends ScrollActors
          removePoints();
         fireProjectile();
         addPoints();
+        asteroidRemove();
+        touchAsteroid();
         removeSun();
+        scoreAlert();
+        asteroidRemove();
         
        
     }
@@ -68,7 +70,7 @@ public class Plane extends ScrollActors
             
 }Actor points2 = getOneIntersectingObject(Mars.class);
     if( isTouching(Mars.class) ){
-            getWorld().removeObject(points2);
+            
                 score++;
                 
             
@@ -78,13 +80,16 @@ public class Plane extends ScrollActors
 private void removePoints(){
         Actor points = getOneIntersectingObject(Sun.class);
         if( isTouching(Sun.class ) ){
-           getWorld().showText("Avoid Sun! You Will Melt!!!Press SPACEBAR",100,400);
-             score--;   
-                      
-        setRotation(getRotation()+40);//set rotation when touching Sun class
+            getWorld().showText("PRESS Q TO AVOID MELTING", 250, 250);
+            score--;
+             setRotation(getRotation()+40);//set rotation when touching Sun class
         //score will decrease as long as plane will rotate near Sun class
-            
-}
+    }
+    else
+    getWorld().showText("  ", 250, 250);
+    
+      
+       
  Actor points2 = getOneIntersectingObject(Enemy.class);
         if( isTouching(Enemy.class ) ){
             
@@ -93,16 +98,44 @@ private void removePoints(){
             
 }
 }
-// remove sun if score > 10
- private void removeSun(){
-        Actor sun1 = getOneIntersectingObject(Sun.class);
-            if ( Greenfoot.isKeyDown("space") ){
+private void removeSun(){
+    Actor remosun = getOneIntersectingObject(Sun.class);
+            if ( Greenfoot.isKeyDown("q")){
           
-                getWorld().removeObject(sun1);
-               getWorld().showText("Sun Removed!!!", 400, 400);
+            getWorld().removeObject(remosun);}
+        }  
+   private void touchAsteroid(){
+            
+        
+        if(isTouching(Asteroid.class)){
+        setRotation(getRotation()+5);}
+   
+       
+}
+//method to drop points and remove a Asteroid class when intersecting + spacebar    
+     private void asteroidRemove(){
+        Actor moon = getOneIntersectingObject(Asteroid.class);
+            if ( (Greenfoot.isKeyDown("space")) && (score >10)){
+                
+            getWorld().removeObjects(getWorld().getObjects(Asteroid.class));
+            
+                 getWorld().showText("ASTEROID DESTROYED!!!YOU SAVED THE WORLD!!!", 550, 400);
+            getWorld().showText("KILL MORE INVADERS", 450, 500);}
+            else
+            getWorld().showText("  ", 550, 400);
+            }
+        
+            public void scoreAlert(){
+                if(isTouching(Asteroid.class) && score>=10)
+                 getWorld().showText("TOUCH AND PRESS SPACEBAR TO REMOVE ASTEROID", 350, 250);
+            
+            else if(isTouching(Asteroid.class) && score<=10)
+             getWorld().showText("YOU NEED 10 POINTS TO REMOVE ASTEROID", 350, 250);
+             else
+             getWorld().showText("  ", 350, 250);
             
         }
     }
+        
 
-}
 

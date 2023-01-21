@@ -30,11 +30,14 @@ public class Player2 extends Actor
         control();
         earnPoints();
         speedBooster();
-        touchAsteroid();
        
-        moonLaunch();
         fireProjectile();
         hitByProjectile1();
+        scoreAlert();
+        touchAsteroid();
+         removeAsteroid();
+               
+               
     }
     //method to shoot-create object of a class
      public void fireProjectile(){
@@ -42,6 +45,8 @@ public class Player2 extends Actor
              Projectile2 projectile = new Projectile2();
             getWorld().addObject(projectile,getX(),getY());
                projectile.turnTowards(450,0);
+              
+               
     
     }
     }
@@ -60,31 +65,18 @@ public class Player2 extends Actor
             setLocation( getX() + (int)speed, getY() );
     }
     //method to remove Aasteroid class
-     private void moonLaunch(){
+     private void touchAsteroid(){
         Actor moon = getOneIntersectingObject(Asteroid.class);
             if ( Greenfoot.isKeyDown("space") && Player2.scor >= 10 && Player1.scor <100){
           
-                getWorld().removeObject(moon);
-                   getWorld().showText("ASTEROID DESTROYED!!!YOU SAVED THE WORLD!!!", 400, 400);
+                 getWorld().removeObjects(getWorld().getObjects(Asteroid.class));
+            
+                   getWorld().showText("ASTEROID DESTROYED!!!", 400, 400);
+            
             
             }
             }
-            //method to change movement if touching Asteroid class
-            public void touchAsteroid(){
-             if(isTouching(Asteroid.class)){
-        setRotation(getRotation()+40);}  
-            
-        
-    if( !prizeSoundOn )
-            {
-               prizeSoundOn = true;
-               prizeSound.playLoop();
-               timerPrizeSound = 1;
-            }
-            else
-                timerPrizeSound = 1;
-            }
-            
+           
             //method to add point when touching prize class + sound event
     private void earnPoints(){
         Actor price = getOneIntersectingObject(prize.class);
@@ -147,5 +139,34 @@ public class Player2 extends Actor
                 
                 
             }
+        }
+        //method to remove Asteroid class + sound 
+     public void removeAsteroid(){
+        Actor moon = getOneIntersectingObject(Asteroid.class);
+            if ( Greenfoot.isKeyDown("space") && PlayerSingle.scor >= 10 && PlayerSingle.scor <100){
+          
+                getWorld().removeObject(moon);
+               getWorld().showText("ASTEROID DESTROYED!!!YOU SAVED THE WORLD!!!", 400, 400);
+               getWorld().showText("", 400, 400);
+            
+        }if( !prizeSoundOn )
+            {
+               prizeSoundOn = true;
+               prizeSound.playLoop();
+               timerPrizeSound = 1;
+            }
+            else
+                timerPrizeSound = 1;
+            }
+           
+         public void scoreAlert(){
+                if(isTouching(Asteroid.class) && scor>=10)
+                 getWorld().showText("TOUCH AND PRESS SPACEBAR TO REMOVE ASTEROID", 350, 250);
+            
+            else if(isTouching(Asteroid.class) && scor<=10)
+             getWorld().showText("YOU NEED 10 POINTS TO REMOVE ASTEROID", 350, 250);
+             else
+             getWorld().showText("  ", 350, 250);
+            
         }
 }

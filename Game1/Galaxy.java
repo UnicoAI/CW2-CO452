@@ -23,7 +23,7 @@ public class Galaxy extends World
           //arrange text display on screen
            showText("Single Player -  score: " + PlayerSingle.scor, 470, 50);
             showText("Drive Space Ship in the Universe To Find Earth like Planet ", 300, 100);
-            showText("Use Arrows to navigate ", 170, 140);
+            showText("Use W A S D  to navigate ", 170, 140);
             showText("Mouse click to Shoot Aliens ", 170, 180);
             showText("Avoid Touching Sun or Aliens ", 170,220);
             showText("Time Limit 1 Minute", 170, 260);

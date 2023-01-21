@@ -196,7 +196,7 @@ else if(Player1.scor == 0){
     //create alert when scor>10 alert to remove asteroid
       private void alertAsteroid(){
         if(PlayerSingle.scor>=10 ){
-            showText("GO TO ASTEROID AND PRESS SPACE TO REMOVE IT", 400, 200);
+            showText("", 400, 200);
         }
     }
   
